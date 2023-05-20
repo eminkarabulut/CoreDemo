@@ -1,0 +1,57 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<section class="main-content-w3layouts-agileits">
+	<div class="container">
+		<h3 class="tittle">Kayıt Sayfası</h3>
+		<div class="inner-sec">
+			<div class="login p-5 bg-light mx-auto mw-100">
+				<form asp-action="Index" asp-controller="Register" method="post">
+					<div class="form-row">
+						<div class="col-md-6 mb-3">
+							<label asp-for="Name">Ad Soyad</label>
+							<input type="text" class="form-control" asp-for="Name" placeholder="" required="">
+							<span asp-validation-for="Name" class="text-danger"></span>
+						</div>
+						<div class="col-md-6 mb-3">
+							<label asp-for="Email">Email</label>
+							<input type="email" class="form-control" asp-for=Email placeholder="" required="">
+							<span asp-validation-for="Email" class="text-danger"></span>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label asp-for="Password">Şifre</label>
+							<input type="password" class="form-control" asp-for="Password" placeholder="" required="">
+							<span asp-validation-for="Password" class="text-danger"></span>
+						</div>
+						<div class="form-group col-md-6">
+							<label asp-for="Image">Görsel Dosya Yolu</label>
+							<input type="text" class="form-control" asp-for="Image" placeholder="" required="">
+							<span asp-validation-for="Image" class="text-danger"></span>
+						</div>
+
+					</div>
+					<button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
+					<p>
+						<a href="#" id="termsId">By clicking Signup, I agree to your terms</a>
+					</p>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<script>
+		$('#termsId').click(function () {
+			swal("Sitemizde verdiğiniz mail adresi üzerinden bilgi ve haber e-postaları spam ölçüsüne varmadan gönderilmeye devam edilecektir.");
+		});
+	</script>
+</section>
+
+
